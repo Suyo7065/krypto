@@ -9,7 +9,6 @@ export const TransactionsContext = createContext()
 const { ethereum } = window
 
 const getEthereumContract = () => {
-  console.log('yooyoyo')
   const provider = new ethers.providers.Web3Provider(ethereum)
   const signer = provider.getSigner()
   const transactionContract = new ethers.Contract(
@@ -100,15 +99,8 @@ export const TransactionProvider = ({ children }) => {
       setisLoading(false)
       console.log(`Success  = ${transactionHash.hash}`)
 
-      const transactionsCount = await transactionContract.getTransactionCount(
-        () => {
-          try {
-            setTransactionCount(transactionsCount.toNumber())
-          } catch (error) {
-            console.log(error)
-          }
-        },
-      )
+      const transactionsCount = await transactionContract.getTransactionsCount()
+      setTransactionCount(transactionsCount.toNumber())
     } catch (err) {
       console.log(err)
 
