@@ -29,7 +29,7 @@ export const TransactionProvider = ({ children }) => {
     message: '',
   })
   const [isLoading, setisLoading] = useState(false)
-  const [transactionCount, settransactionCount] = useState(
+  const [transactionCount, setTransactionCount] = useState(
     localStorage.getItem('transactionCount'),
   )
   const handleChange = (e, name) => {
@@ -88,7 +88,7 @@ export const TransactionProvider = ({ children }) => {
         ],
       })
 
-      const transactionHash = await transactionContract.addToBlockaChain(
+      const transactionHash = await transactionContract.addToBlockchain(
         addressTo,
         parsedAmount,
         message,
@@ -100,7 +100,15 @@ export const TransactionProvider = ({ children }) => {
       setisLoading(false)
       console.log(`Success  = ${transactionHash.hash}`)
 
-      settransactionCount(transactionCount.toNumber)
+      const transactionsCount = await transactionContract.getTransactionCount(
+        () => {
+          try {
+            setTransactionCount(transactionsCount.toNumber())
+          } catch (error) {
+            console.log(error)
+          }
+        },
+      )
     } catch (err) {
       console.log(err)
 
