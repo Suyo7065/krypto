@@ -2,31 +2,34 @@ import logo from '../../images/logo.png'
 
 const Footer = () => {
   return (
-    <div className=" w-full h-full flex md:justify-center justify-between items-center flex-col p-4 pb-10 gradient-bg-footer">
+    <div className=" w-full flex md:justify-center justify-between items-center flex-col p-4 gradient-bg-footer">
       <div className="w-full flex sm:flex-row flex-col justify-between items-center my-4">
         <div className="flex flex-[0.5] justify-center items-center">
           <img src={logo} alt="logo" className="w-32" />
         </div>
-        <div className="flex flex-1 justify-evenly items-center flex-wrap sm:mt-0 mt-5 w-full">
-          <p className="text-white text-base text-center mx-2 cursor-pointer">
+        <div className="flex flex-1 justify-evenly items-center flex-wrap sm:mt-0 mt-3 w-full">
+          <p className="text-white text-base text-center mx-1 cursor-pointer">
             Market
           </p>
-          <p className="text-white text-base text-center mx-2 cursor-pointer">
+          <p className="text-white text-base text-center mx-1 cursor-pointer">
             Exchange
           </p>
-          <p className="text-white text-base text-center mx-2 cursor-pointer">
+          <p className="text-white text-base text-center mx-1 cursor-pointer">
             Tutorial
           </p>
-          <p className="text-white text-base text-center mx-2 cursor-pointer">
+          <p className="text-white text-base text-center mx-1 cursor-pointer">
             Wallets
           </p>
         </div>
       </div>
-      <div className="flex justify-center items-center flex-col mt-5 ">
+      <div className="flex justify-center items-center flex-col mt-3 ">
         <p className="text-white text-sm text-center"> Made with ❤️</p>
+        <p className="text-white text-sm text-center">
+          By:- Suyogya Shrivastava
+        </p>
       </div>
-      <div className="sm:w-[90%] w-full h-[0.25px] bg-gray-400 mt-5"></div>
-      <div className="sm:w-[90%] w-full flex justify-between items-center mt-3">
+      <div className="sm:w-[90%] w-full h-[0.25px] bg-gray-400 mt-3"></div>
+      <div className="sm:w-[90%] w-full flex justify-between items-center mt-2">
         <p className="text-white text-sm text-center"> All rights Reserved</p>
       </div>
     </div>

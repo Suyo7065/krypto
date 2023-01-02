@@ -57,7 +57,6 @@ export const TransactionProvider = ({ children }) => {
           amount: parseInt(transaction.amount._hex) / 10 ** 18,
         }),
       )
-      console.log(structuredTransactions)
       setTransactions(structuredTransactions)
     } catch (error) {
       console.log(error)
@@ -99,7 +98,7 @@ export const TransactionProvider = ({ children }) => {
       const transactionContract = getEthereumContract()
       const transactionsCount = await transactionContract.getTransactionsCount()
 
-      window.localStorage.setItem('transactionCount', transactionCount)
+      window.localStorage.setItem('transactionCount', transactionsCount)
     } catch (err) {
       console.log(err)
 
